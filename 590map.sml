@@ -1,6 +1,20 @@
-datatype ('KYT, 'ELT)MAP=
-new
-| add of ('KYT, 'ELT)MAP * 'KYT * 'ELT;
+(*
+    Map of ELT, KYT
+    
+    new: --> MAP
+    add: MAP x KYT x ELT --> MAP
+    del: Map x KYT --> MAP
+    get: MAP x KYT --> ELT U null
+    empty: MAP --> boolean
+    clear: MAP --> MAP
+    size: MAP --> nat
+    hasKey: Map x KYT --> boolean
+    hasVal: MAP x ELT --> boolean
+*)
+
+datatype ('KYT, 'ELT)MAP =
+        new
+        | add of ('KYT, 'ELT)MAP * 'KYT * 'ELT;
 
 fun get(new, k) = NONE
 |   get(add(M,k,e),g) = 
