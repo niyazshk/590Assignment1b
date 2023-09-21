@@ -2,9 +2,10 @@ datatype ('KYT, 'ELT)MAP=
 new
 | add of ('KYT, 'ELT)MAP * 'KYT * 'ELT;
 
-fun get(new, k) = null
-|   get(add(M,k,e),g) = if (k=g) then e 
-                        else get(M,g);
+fun get(new, k) = NONE
+|   get(add(M,k,e),g) = 
+        if (k=g) then SOME e 
+        else get(M,g);
 
 fun empty(new) = true
 |   empty(add(M,k,e)) = false;
